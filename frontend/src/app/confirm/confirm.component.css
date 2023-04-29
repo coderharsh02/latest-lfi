@@ -1,0 +1,16 @@
+#noBtn {
+  background-color: #87c887;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  outline: none;
+  width: 10em;
+}
+
+#yesBtn {
+  background-color: #87c887;
+  padding: 0.5em;
+  border-radius: 0.4em;
+  outline: none;
+  width: 10em;
+}
+

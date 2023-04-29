@@ -1,0 +1,24 @@
+/* Footer */
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.footer p {
+  font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+  /* Footer */
+  .footer p {
+    font-size: 14px;
+  }
+}

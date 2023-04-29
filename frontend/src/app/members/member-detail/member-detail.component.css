@@ -1,0 +1,66 @@
+.img-thumbnail {
+    margin: 25px;
+    width: 85%;
+    height: 85%;
+}
+
+.card-body {
+    padding: 0 25px;
+}
+
+.card-footer {
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: none;
+}
+
+.tab-content {
+    margin-top: 1em;
+}
+
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
+
+
+.Donated {
+    background-color: #DF2E38;
+    color: white;
+    min-width: 7em;
+}
+
+.Collected {
+    background-color: #ffb90b;
+    color: white;
+    min-width: 7em;
+}
+
+.Available {
+    background-color: #34A853;
+    color: white;
+    min-width: 7em;
+}
+
+.Booked {
+    background-color: #9ab518;
+    color: white;
+    min-width: 7em;
+}
+
+td{
+    margin-top: 1em;
+}
+
+.tDonated {
+    color: red;
+}
+
+.tCollected {
+    color: orange;
+}
+
+.tAvailable {
+    color: green;
+}
+
+.tBooked {
+    color: rgb(46, 180, 162);
+}

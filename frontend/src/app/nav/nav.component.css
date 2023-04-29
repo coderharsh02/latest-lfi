@@ -1,0 +1,23 @@
+.dropdown-toggle, .dropdown-item {
+    cursor: pointer;
+}
+
+.navbar-nav li {
+    font: 1.5em 'Satisfy', sans-serif;
+}
+
+#membersNavLink{
+    margin-left: 5em;
+}
+
+ul.dropdown-menu.show {
+    margin-top: 1em;
+}
+
+#navbarSupportedContent {
+    text-align: center;
+}
+
+.navbar-brand {
+    font: 2em 'Satisfy', sans-serif;
+}

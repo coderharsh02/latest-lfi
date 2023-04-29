@@ -1,0 +1,59 @@
+<div class="container">
+  <div style="text-align: center">
+    <h1>Lets do the needfull for the society</h1>
+    <p class="lead">
+      Come on in to donate or collect food for the needy ... all you need to do is sign up!
+    </p>
+
+    <div class="text-center" *ngIf="!(accountService.currentUser$ | async)">
+      <button routerLink="/register" class="btn btn-lg me-2" style="background-color: #a0c49c; border: 2px solid grey;">
+        Register
+      </button>
+      <button class="btn btn-info btn-lg" style="background-color: #5da47a; border: 2px solid grey;" onClick="document.getElementById('aboutUs').scrollIntoView();">Learn more</button>
+    </div>
+
+    <div class="text-center" *ngIf="(accountService.currentUser$ | async)">
+      <a routerLink="/donate" class="btn btn-lg me-2" style="background-color: #a0c49c; border: 2px solid grey;">
+        Donate
+      </a>
+      <a routerLink="/collect" class="btn btn-info btn-lg" style="background-color: #5da47a; border: 2px solid grey;">Collect</a>
+    </div>
+
+    <!-- Top donors section -->
+    <div class="top-donors">
+      <h2>Top Donors</h2>
+      <div class="top-donor-row">
+        <div class="top-donor" *ngFor="let donor of topDonors;">
+          <img src="{{donor.user.photoUrl}}" alt="{{donor.user.name}}" />
+          <h2>{{donor.user.name}}</h2>
+          <p>{{donor.user.city}}</p>
+          <p>Donated food to {{donor.noOfMeals}} People</p>
+        </div>
+      </div>
+    </div>
+    <!-- Top collectors section -->
+    <div class="top-collectors">
+      <h2>Top Collectors</h2>
+      <div class="top-collector-row">
+        <div class="top-collector" *ngFor="let collector of topCollectors;">
+          <img src="{{collector.user.photoUrl}}" alt="{{collector.user.name}}" />
+          <h2>{{collector.user.name}}</h2>
+          <p>{{collector.user.city}}</p>
+          <p>Served food to {{collector.noOfMeals}} People</p>
+        </div>
+      </div>
+    </div>
+    <!-- About us section -->
+    <div class="about-us" id="aboutUs">
+      <h2>About Us</h2>
+      <p>
+        LetsFeedIndia is a non-profit organization that aims to reduce food waste
+        and fight hunger in India. We connect donors with food collectors to
+        ensure that excess food is distributed to those in need. Our platform is
+        easy to use and we are committed to providing a safe and reliable service
+        to all our users.
+      </p>
+    </div>
+
+  </div>
+</div>

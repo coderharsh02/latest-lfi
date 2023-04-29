@@ -1,0 +1,23 @@
+.Donated {
+    background-color: #DF2E38;
+    color: white;
+    min-width: 7em;
+}
+
+.Collected {
+    background-color: #ffb90b;
+    color: white;
+    min-width: 7em;
+}
+
+.Available {
+    background-color: #34A853;
+    color: white;
+    min-width: 7em;
+}
+
+.Booked {
+    background-color: #9ab518;
+    color: white;
+    min-width: 7em;
+}

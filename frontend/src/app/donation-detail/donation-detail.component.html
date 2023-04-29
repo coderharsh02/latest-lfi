@@ -1,0 +1,39 @@
+<div class="container" id="donationDetailBox" *ngIf="donation">
+    <div class="row">
+        <div class="col-md-4">
+            <img id="photoUrl" src="{{ donation.donatedBy.photoUrl}}" class="img-fluid">
+            <h2>Donor Details</h2>
+            <p><strong>Name </strong>: {{ donation.donatedBy.name }}</p>
+            <p><strong>Email </strong>: {{ donation.donatedBy.userName }}</p>
+            <p><strong>House No.</strong>: {{donation.donatedBy.addressLine1 }}</p>
+            <p><strong>Near by</strong>: {{donation.donatedBy.addressLine2 }}</p>
+            <p><strong>City </strong>: {{donation.donatedBy.city}}</p>
+            <p><strong>Pincode </strong>: {{donation.donatedBy.pincode}}</p>
+        </div>
+
+        <div class="col-md-4">
+            <h2>Donation Details</h2>
+            <h3> <strong>No of people that can be fed </strong>: {{ donation.noOfMeals }}</h3>
+            <h3> <strong>Donation Status </strong>: {{ donation.status }}</h3>
+            <br><br><br>
+            <div>
+                <h2>Feedback</h2>
+                <p><strong>Donor </strong>:</p>
+                <p [innerHtml]="donation.feedbackByDonor"></p>
+                <p><strong>Collector </strong>: </p>
+                <p [innerHtml]="donation.feedbackByCollector"></p>
+            </div>
+        </div>
+
+        <div class="col-md-4" *ngIf="!isAvailable">
+            <img id="photoUrl" src="{{ donation.collectedBy.photoUrl }}" class="img-fluid">
+            <h2>Collector Details</h2>
+            <p><strong>Name </strong>: {{ donation.collectedBy.name }}</p>
+            <p><strong>Email </strong>: {{ donation.collectedBy.userName }}</p>
+            <p><strong>House No.</strong>: {{donation.collectedBy.addressLine1 }}</p>
+            <p><strong>Near by</strong>: {{donation.collectedBy.addressLine2 }}</p>
+            <p><strong>City </strong>: {{donation.collectedBy.city}}</p>
+            <p><strong>Pincode </strong>: {{donation.collectedBy.pincode}}</p>
+        </div>
+    </div>
+</div>

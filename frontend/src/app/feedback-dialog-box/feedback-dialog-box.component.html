@@ -1,0 +1,11 @@
+<div mat-dialog-content class="dialogBox">
+    <p>{{data.question}}</p>
+    <mat-form-field appearance="fill" id="box">
+        <textarea id="textBox" matInput [(ngModel)]="data.answer" rows="10" cols="40"></textarea>
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()" id="noThanksbtn">No Thanks!</button>
+        <button mat-button [mat-dialog-close]="data.answer" id="okBtn" cdkFocusInitial>Okay!</button>
+    </div>
+</div>

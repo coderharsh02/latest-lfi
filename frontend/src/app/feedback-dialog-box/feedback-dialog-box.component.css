@@ -1,0 +1,32 @@
+.dialogBox {
+    width: 37vw;
+}
+
+mat-form-field {
+    width: 30em;
+}
+
+.mat-mdc-dialog-actions.mdc-dialog__actions
+{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-mdc-dialog-actions.mdc-dialog__actions button
+{
+    width: 10em;
+}
+
+#okBtn {
+    background-color: #87c887;
+    padding: 0.5em;
+    border-radius: 0.4em;
+    outline: none;
+}
+
+#noThanksbtn {
+    background-color: #f99090;
+    padding: 0.5em;
+    border-radius: 0.4em;
+    outline: none;
+}

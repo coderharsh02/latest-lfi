@@ -1,0 +1,139 @@
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.user.photoUrl || './assets/user.png'}}" alt="{{member.user.name}}"
+                class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Name:</strong>
+                    <p>{{member.user.name}}</p>
+                </div>
+                <div>
+                    <strong>UserName:</strong>
+                    <p>{{member.user.userName}}</p>
+                </div>
+                <div>
+                    <strong>Donor Type:</strong>
+                    <p>{{member.user.donorType}}</p>
+                </div>
+                <div>
+                    <strong>Volunteer Type:</strong>
+                    <p>{{member.user.volunteerType}}</p>
+                </div>
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.user.addressLine1}}</p>
+                    <p>{{member.user.addressLine2}}</p>
+                    <p>{{member.user.city}}</p>
+                    <p>{{member.user.pincode}}</p>
+                </div>
+                <div>
+                    <strong>Phone Number:</strong>
+                    <p>{{member.user.phoneNumber}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>2022</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-danger">Like</button>
+                    <button class="btn btn-success">Messages</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-8">
+        <tabset class="member.user-tabset">
+            <tab heading="About {{member.user.name}}">
+                <div class="tab-content">
+                    <h2>Description</h2>
+                    <p>I am a highly motivated individual who finds great fulfillment in donating and collecting items
+                        for a good cause. Whether it's donating to a local charity or organizing a collection drive for
+                        those in need, I am always eager to make a positive impact in my community.</p>
+                    <p>
+                        I believe that giving back is an essential part of being a responsible and compassionate member
+                        of society. When I see others in need, it ignites a strong desire within me to take action and
+                        make a difference in any way I can. I am passionate about helping others and finding creative
+                        solutions to problems that can make a real difference in people's lives.</p>
+
+                    <h2>Life Goals</h2>
+                    <p>Giving back to my community: I aim to regularly donate my time, money, and resources to local
+                        charities and non-profit organizations that support causes I care about, such as education,
+                        healthcare, and poverty alleviation.
+                    </p>
+                    <p>
+                        Building a collection with a purpose: I want to create a collection of items that not only
+                        brings me joy but also serves a purpose. For example, I might collect books to donate to a local
+                        school or artwork to auction off for charity.</p>
+                </div>
+
+            </tab>
+
+            <tab heading="Donations">
+                <div class="tab-content">
+                    <h4>Donations</h4>
+                    <table class="table" *ngIf="member.donations.length > 0">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DonationId</th>
+                                <th scope="col">No Of People Served</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">CollectedBy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let donation of member.donations; let i = index">
+                                <th scope="row"> {{i + 1}} </th>
+                                <td><a class="link" routerLink="/donation/{{donation.donationId}}"
+                                        routerLinkActive="active">{{donation.donationId}}</a></td>
+                                <td>{{donation.noOfMeals}}</td>
+                                <td class="t{{ donation.status }}">{{donation.status}}</td>
+                                <td>{{donation.collectedBy?.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </tab>
+
+            <tab heading="Collections">
+                <div class="tab-content">
+                    <h4>Collections</h4>
+                    <table class="table" *ngIf="member.collections.length > 0">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DonationId</th>
+                                <th scope="col">No Of People Served</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">donatedBy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let donation of member.collections; let i = index">
+                                <th scope="row"> {{i + 1}} </th>
+                                <td><a class="link" routerLink="/donation/{{donation.donationId}}"
+                                        routerLinkActive="active">{{donation.donationId}}</a></td>
+                                <td>{{donation.noOfMeals}}</td>
+                                <td><button class="btn mb-1n {{ donation.status }}" (click)="eventEmitted(donation)"
+                                        type="button">{{ donation.status }}</button></td>
+                                <td>{{donation.donatedBy?.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </tab>
+            <!-- <tab heading="Photos">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </tab>
+            <tab heading="Messages">
+                <p>Messages will go here</p>
+            </tab> -->
+        </tabset>
+    </div>
+</div>

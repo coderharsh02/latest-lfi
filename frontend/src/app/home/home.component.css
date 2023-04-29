@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Top donors section */
+.top-donors, .top-collectors, .about-us {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  padding: 50px;
+  background-color: #f8f8f8;
+}
+
+.top-donors h2,
+.top-collectors h2,
+.about-us h2 {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.top-donor-row,
+.top-collector-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-donor,
+.top-collector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #d5e3d8;
+}
+
+.top-donor img,
+.top-collector img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+.top-donor h2,
+.top-collector h2 {
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+
+.top-donor p,
+.top-collector p,
+.about-us p {
+  font-size: large;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* About us section */
+.about-us {
+  padding: 50px;
+  background-color: #f8f8f8;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  /* Navigation bar */
+
+  /* Top donors section */
+  .top-donors {
+    padding: 20px;
+  }
+
+  .top-donor-row {
+    flex-direction: column;
+  }
+
+  .top-donor {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .top-donor img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .top-donor h2 {
+    font-size: 16px;
+  }
+
+  .top-donor p {
+    font-size: 14px;
+  }
+
+  /* Top collectors section */
+  .top-collectors {
+    padding: 20px;
+  }
+
+  .top-collector-row {
+    flex-direction: column;
+  }
+
+  .top-collector {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .top-collector img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .top-collector h2 {
+    font-size: 16px;
+  }
+
+  .top-collector p {
+    font-size: 14px;
+  }
+
+  /* About us section */
+  .about-us {
+    padding: 20px;
+  }
+
+  .about-us h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .about-us p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,160 @@
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <h1>Your profile</h1>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
+            <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.user.photoUrl || './assets/user.png'}}" alt="{{member.user.name}}"
+                class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Name:</strong>
+                    <p>{{member.user.name}}</p>
+                </div>
+                <div>
+                    <strong>UserName:</strong>
+                    <p>{{member.user.userName}}</p>
+                </div>
+                <div>
+                    <strong>Donor Type:</strong>
+                    <p>{{member.user.donorType}}</p>
+                </div>
+                <div>
+                    <strong>Volunteer Type:</strong>
+                    <p>{{member.user.volunteerType}}</p>
+                </div>
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.user.addressLine1}}</p>
+                    <p>{{member.user.addressLine2}}</p>
+                    <p>{{member.user.city}}</p>
+                    <p>{{member.user.pincode}}</p>
+                </div>
+                <div>
+                    <strong>Phone Number:</strong>
+                    <p>{{member.user.phoneNumber}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>2022</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-8">
+        <form #editForm="ngForm" (ngSubmit)="updateMember()" id="editForm" autocomplete="off" ngNativeValidate>
+            <h2 class="text-center text-primary">Edit Profile</h2>
+            <hr />
+            <div class="row align-items-center">
+                <div class="col-25"><label for="username">Username</label></div>
+                <div class="col-75">
+                    <input type="email" id="userName" name="userName" [(ngModel)]="member.user.userName"
+                        placeholder="Your email address.." disabled required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25"><label for="name">Name</label></div>
+                <div class="col-75">
+                    <input type="text" id="name" name="name" [(ngModel)]="member.user.name" placeholder="Your Name.."
+                        required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25"><label for="donorType">Donor Type</label></div>
+                <div class="col-75">
+                    <select id="donorType" name="donorType" [(ngModel)]="member.user.donorType">
+                        <option value="Individual">Individual</option>
+                        <option value="Party Plot">Party Plot</option>
+                        <option value="Hostel">Hostel</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25"><label for="volunteerType">Volunteer Type</label></div>
+                <div class="col-75">
+                    <select id="volunteerType" name="volunteerType" [(ngModel)]="member.user.volunteerType">
+                        <option value="Individual">Individual</option>
+                        <option value="Organization">Organization</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="addressLine1">Address Line 1</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="addressLine1" name="addressLine1" [(ngModel)]="member.user.addressLine1"
+                        placeholder="Your Address Line 1.." required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="addressLine2">Address Line 2</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="addressLine2" name="addressLine2" [(ngModel)]="member.user.addressLine2"
+                        placeholder="Your Address Line 2.." required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="pincode">Pincode</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="pincode" name="pincode" [(ngModel)]="member.user.pincode"
+                        placeholder="Your Pincode.." required min="100000" max="999999" />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="city">City</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="city" name="city" [(ngModel)]="member.user.city" placeholder="Your City.."
+                        required />
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="col-75">
+                    <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)]="member.user.phoneNumber"
+                        placeholder="Your Phone Number.." required />
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="photoUrl">Photo Url <span class="text-danger">(Optional)</span> </label>
+                </div>
+                <div class="col-75">
+                    <input type="tel" id="photoUrl" name="photoUrl" [(ngModel)]="member.user.photoUrl"
+                        placeholder="Your Photo Url.." />
+                </div>
+            </div>
+
+            <!-- <div class="row align-items-center">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input type="password" id="password" name="password" [(ngModel)]="member.user.password"
+                        placeholder="Your Password.." required />
+                </div>
+            </div> -->
+
+            <div class="card-footer mt-2">
+                <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success col-12">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
